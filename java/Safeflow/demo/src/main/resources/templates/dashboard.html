@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot UI</title>
+
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body class="grid-body">
+	<div class="grid-container">
+		<!-- 1번 그리드 (전체 이벤트) -->
+		<div class="grid-item">
+
+			<table id="event_table" class="table table-hover">
+				<div class="d-flex justify-content-between">
+					<h3>
+						<span id="total"></span>
+					</h3>
+					<div style="width: auto;">
+						<div class="icon-container">
+							<img class="page-btn" id="event-prevBtn"
+								src="assets/img/back.png">
+						</div>
+						<div class="icon-container">
+							<img class="page-btn" id="event-nextBtn"
+								src="assets/img/back.png" style="transform: rotate(180deg);">
+						</div>
+					</div>
+				</div>
+
+				<thead class="bg-secondary text-white">
+					<tr>
+						<th>이벤트 번호</th>
+						<th>발생일자</th>
+						<th>유형</th>
+						<th>탐지 CCTV</th>
+						<th>처리상태</th>
+						<th>내용작성하기</th>
+					</tr>
+				</thead>
+				<tbody id="event-tbody"></tbody>
+
+			</table>
+			<!-- 페이지 네비게이션 버튼 -->
+		</div>
+		<!-- 2번 그리드 (최근 수정된 문서) -->
+		<div class="grid-item">
+			<h3 id="recent-document">최근 업데이트된 문서</h3>
+			<table class="table table-hover">
+				<thead class="bg-secondary text-white">
+					<tr>
+						<th>No.</th>
+						<th>분류</th>
+						<th>제목</th>
+						<th>업데이트 일자</th>
+					</tr>
+				</thead>
+				<tbody id="recent-document-tbody"></tbody>
+			</table>
+		</div>
+
+		<!-- 3번 그리드 (막대 그래프) -->
+		<div class="grid-item">
+			<canvas id="bar-chart"></canvas>
+		</div>
+
+		<!-- 4번 그리드 (글) -->
+		<div class="grid-item" id="news">
+			<table id="news-table">
+				<colgroup>
+					<col style="width: 450px;">
+					<col style="width: 450px;">
+				</colgroup>
+				<thead>
+					<td>📜 오늘의 안전</td>
+					<td>🚦 무사고 일수 현황</td>
+				</thead>
+				<tbody>
+					<td id="random-quote"></td>
+					<td id="current_situation"></td>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+
+	<!-- 모달창 -->
+	<div id="modalContainer" class="hidden">
+
+		<div id="modalContent">
+			<div id="modal-video">
+				<video id="eventVideo" controls></video>
+			</div>
+			<div id="modal-text">
+			
+			</div>
+			<div id='modalBtnContainer'>
+			  <button id="write">처리완료</button>
+			  <button id="closeModal">닫기</button>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

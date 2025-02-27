@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #3a3a3a, #787878);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    display:flex;
+   	flex-direction:column;
+}
+
+form{
+    display:flex;
+   	flex-direction:column;
+   	justify-content: center;
+   	align-items: center;
+}
+
+.form-floating{
+	width:95%
+}
+/* 버튼 스타일 */
+button {
+    width:95%;
+    padding: 12px;
+    background: #D0D0D0;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #B0B0B0;
+}
+
+/* 에러 메시지 */
+.error-message {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    margin-top: 10px;
+}
+
+/* 링크 스타일 */
+.links {
+	margin-top: 15px;
+    display: block;
+    text-align: center;
+    color: #808080;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 15px;
+}
+
+.links:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.logo{
+	display:flex;
+	justify-content: center;
+	padding-bottom:40px;
+}
+.logo > *{
+	width:150px;
+}

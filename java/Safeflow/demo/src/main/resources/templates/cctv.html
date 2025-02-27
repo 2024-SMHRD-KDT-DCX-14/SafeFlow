@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCTV Monitoring</title>
+	<link rel="stylesheet" href="assets/css/cctv.css">
+</head>
+<body>
+   <!-- ✅ CCTV 전체 레이아웃 -->
+   <div id="cctv-wrapper">
+      <!-- ✅ 좌측 CCTV 선택 사이드바 -->
+      <div id="cctv-sidebar">
+         <h4 align="center">CCTV 목록</h4>
+         <div id="cctv-list">
+            <table class="table">
+               <tr>
+                  <th>번호</th>
+                  <th>CCTV</th>
+               </tr>
+               <tr th:each="dept, stat : ${session.EMP_DEPT}">
+                  <td th:text="${stat.index + 1}" class="index"></td>
+                  <td>
+                     <div class="cctvList">
+                        <div class="cctv-item" draggable="true">
+                           <span th:text="${dept}"></span>
+                        </div>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <!-- CCTV 화면을 감싸는 컨테이너 -->
+      <div id="cctv-container">
+         <div id="video-grid">
+            <!-- ✅ 슬롯을 드래그 가능하도록 `draggable="true"` 속성 추가 -->
+            <div class="grid-slot" id="slot-0" draggable="true">
+               <video class="grid-video" id="video-0" autoplay playsinline muted></video>
+               <canvas class="bounding-box-canvas" id="canvas-0"></canvas>
+            </div>
+            <div class="grid-slot" id="slot-1" draggable="true">
+               <video class="grid-video" id="video-1" autoplay playsinline muted></video>
+               <canvas class="bounding-box-canvas" id="canvas-1"></canvas>
+            </div>
+            <div class="grid-slot" id="slot-2" draggable="true">
+               <video class="grid-video" id="video-2" autoplay playsinline muted></video>
+               <canvas class="bounding-box-canvas" id="canvas-2"></canvas>
+            </div>
+            <div class="grid-slot" id="slot-3" draggable="true">
+               <video class="grid-video" id="video-3" autoplay playsinline muted></video>
+               <canvas class="bounding-box-canvas" id="canvas-3"></canvas>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+
+
+</body>
+</html>

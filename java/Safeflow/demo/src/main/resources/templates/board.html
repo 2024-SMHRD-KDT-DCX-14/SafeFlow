@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeFlow Board</title>
+
+<link rel="stylesheet" href="assets/css/board.css">
+
+</head>
+
+
+<body>
+
+	<div class="sidebar">
+		<ul>
+			<li><span class="folder list" data-category="산업안전보건법">📁
+					산업안전보건법</span></li>
+					<hr></hr>
+			<li><span class="folder list" data-category="표준작업절차서(SOP)">📁
+					표준작업절차서(SOP)</span></li>
+			<li><span class="folder list" data-category="산업안전신고서">📁
+					산업안전신고서</span></li>
+			<li><span class="folder list" data-category="일일안전계획서">📁
+					일일안전계획서</span></li>
+		</ul>
+	</div>
+
+	<!-- 게시판 메인 -->
+	<div id="boardmain">
+
+		<div id="header">
+			<h4 id="category-title"></h4>
+			<span><input id=document_title type="text"
+				placeholder="문서명을 입력하세요"></span> <span id="search"
+				class="button-like btn btn-secondary">검색</span> <span id="modalOpenButton"
+				class="button-like btn btn-primary">문서 등록</span>
+		</div>
+
+		<!-- 문서 조회 -->
+		<div id="body"></div>
+
+	</div>
+
+	<!-- 문서 목록 테이블 템플릿 -->
+	<template id="document-table-template">
+		<div class="document-list">
+			<table>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th class="cate">Category</th>
+						<th>문서명</th>
+					</tr>
+				</thead>
+				<tbody class="file-table-body"></tbody>
+			</table>
+			<div class="pagination">
+				<span id="prev-btn" class="page-button"> 이전  </span>
+				<div id="pagination-number"></div>
+				<!-- 페이지 번호 버튼이 들어갈 영역 -->
+				<span id="next-btn" class="page-button"> 다음 </span>
+			</div>
+		</div>
+	</template>
+
+	<!-- PDF 뷰어 (게시판 위로 덮어쓰기) -->
+	<div id="pdf-viewer-container" style="display: none;">
+		<span id="closeViewerButton" class="button-like">← 뒤로가기</span>
+		<div id="pdf-pages-container"></div>
+	</div>
+
+
+	<!-- 모달창 -->
+	<!-- 모달 컨테이너: 기존 id 유지, 숨김 처리는 .hidden 대신 Bootstrap 클래스도 혼합 가능 -->
+<div id="modalContainer" class="hidden">
+  <!-- 모달 콘텐츠: Bootstrap 카드(card)처럼 보이게, 중앙정렬을 위해 스타일 추가 -->
+  <div id="modalContent" 
+       class="p-4 border bg-white d-flex flex-column justify-content-center" 
+       style="max-width: 600px; margin: 40px auto; border-radius: 6px;">
+       
+    <!-- 모달 헤더 역할: 제목 -->
+    <h4 class="mb-4 text-center">문서 등록</h4>
+    
+    <!-- 테이블: Bootstrap 테이블 클래스 적용 -->
+    <table id="upload" class="table table-borderless">
+      <tr>
+        <td class="head-title align-middle" style="width: 120px;">문서명</td>
+        <td>
+          <!-- 인풋에 .form-control 추가 -->
+          <input id="title" name="title" type="text" class="form-control" />
+        </td>
+      </tr>
+      <tr>
+        <td class="head-title align-middle">작성자</td>
+        <td>
+          <input
+            type="text"
+            readonly
+            id="writer"
+            name="writer"
+            th:value="${session.loggedInUser.empNo}"
+            class="form-control"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="head-title align-middle">파일</td>
+        <td>
+          <!-- 파일 업로드는 .form-control-file 또는 .form-control 가능 -->
+          <input id="file" name="file" type="file" class="form-control-file" />
+        </td>
+      </tr>
+      <tr>
+        <td class="head-title align-middle">문서 종류</td>
+        <td>
+          <!-- select에도 .form-control 추가 -->
+          <select name="doctype" id="doctype" class="form-control">
+            <option value="산업안전보건법">산업안전보건법_시행규칙</option>
+            <option value="표준작업절차서(SOP)">SOP</option>
+            <option value="산업안전신고서">산업안전신고서</option>
+            <option value="일일안전계획서">일일안전계획서</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="head-title align-middle">승인 날짜</td>
+        <td>
+          <input id="date" name="date" type="date" class="form-control" />
+        </td>
+      </tr>
+    </table>
+    
+    <!-- 버튼 영역: 오른쪽 정렬 -->
+    <div class="button text-right d-flex flex-row justify-content-center gap-2">
+      <!-- Bootstrap 버튼 클래스 적용 -->
+      <span id="submit" class="register-button btn btn-primary mr-2">등록</span>
+      <span id="modalCloseButton" class="close-button btn btn-secondary">닫기</span>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

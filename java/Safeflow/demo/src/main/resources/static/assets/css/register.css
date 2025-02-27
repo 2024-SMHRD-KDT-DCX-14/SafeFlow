@@ -1,0 +1,88 @@
+body {
+	font-family: 'Arial', sans-serif;
+	background: linear-gradient(to right, #2a2a2a, #666666);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	flex-direction: column;
+}
+
+.register-container {
+	background: #3a3a3a;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	text-align: center;
+	width: 350px;
+}
+
+h2 {
+	color: #f2f2f2;
+	margin-bottom: 20px;
+}
+
+/* 입력 필드와 라벨을 가로로 배치 */
+.input-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	position: relative;
+}
+
+.input-group label {
+	width: 80px;
+	color: #e0e0e0;
+	font-weight: bold;
+	text-align: left;
+	margin-right: 10px;
+}
+
+/* 기존 테두리를 없애고 아래쪽에만 선을 추가 */
+.input-group input {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #aaa;
+	background: transparent;
+	padding: 8px;
+	font-size: 16px;
+	color: white;
+	outline: none;
+	transition: border-color 0.3s ease;
+}
+
+/* 입력 필드에 포커스 시 강조 */
+.input-group input:focus {
+	border-bottom: 2px solid #f2f2f2;
+}
+
+button {
+	background-color: rgb(128, 128, 128);
+	color: rgb(255, 255, 255);
+	border: none;
+	padding: 10px;
+	margin-top: 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background 0.3s ease;
+	width:100%;
+}
+
+button:hover {
+	background-color: #6a6a6a;
+}
+
+a {
+	display: block;
+	margin-top: 15px;
+	color: #f2f2f2;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}

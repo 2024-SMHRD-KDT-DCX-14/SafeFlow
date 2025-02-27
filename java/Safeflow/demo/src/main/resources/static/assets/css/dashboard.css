@@ -1,0 +1,248 @@
+/* 전체 그리드 */
+.grid-body {
+	justify-content: center;
+}
+
+.grid-container {
+	justify-content: center;
+	height: 800px;
+	width: 90%;
+	display: grid;
+	grid-template-columns: repeat(2, 700px);
+	grid-template-rows: 330px 290px 200px;
+	grid-template-areas: "one one" "two three" "four four";
+}
+
+/* 그리드 1번 */
+.grid-container>.grid-item:nth-child(1){
+	grid-area: one;
+	border-bottom: 2px solid #ccc;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.grid-container>.grid-item:nth-child(1)>div{
+	width: 80% !important;
+	font-weight: bold;
+	align-items: center;
+}
+
+.icon-container {
+	width:30px;
+	height:30px;
+	background-color: white;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: box-shadow 0.3s ease;
+	margin-right:12px;
+}
+
+.icon-container:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-btn {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	margin-right:12px;
+}
+
+#event-prevBtn {
+	margin: 0 12px;
+}
+
+#event-nextBtn {
+	margin-left: 12px;
+}
+
+.grid-container>.grid-item:nth-child(1)>#event_table {
+	text-align: center;
+	width: 80% !important;
+	height: 100% -40px !important;
+}
+
+th{
+	font-size: 16px;
+	background-color: #6c757d !important;
+	color:white !important;
+}
+
+/* 그리드 2번 */
+.grid-container>.grid-item:nth-child(2) {
+	grid-area: two;
+	border-bottom: 2px solid #ccc;
+	padding-right: 30px;
+}
+
+#recent-document-tbody {
+	font-size: 12px;
+}
+
+#recent-document-tbody>tr>td:nth-child(-n+2), #recent-document-tbody>tr>td:nth-child(4){
+	text-align: center;
+}
+
+/* 3번그리드 */
+.grid-container>.grid-item:nth-child(3) {
+	grid-area: three;
+	border-bottom: 2px solid #ccc;
+	padding-left: 30px;
+}
+
+#bar-chart {
+	width: 90%;
+	height: 90%;
+}
+
+/* 4번그리드 */
+.grid-container>.grid-item:nth-child(4) {
+	grid-area: four;
+	width:1000px;
+	margin: 0 auto;
+	border-bottom:none !important;
+	margin-top: 0 !important;
+}
+
+
+#news-table {
+  width: 1000px;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 100px 15px ; /* 수평은 0, 수직 간격은 10px */
+}
+
+
+#news > #news-table thead tr > td {
+	 text-align: center;
+	 font-size: 25px;
+	 font-weight: bold;
+}
+#news > #news-table tbody tr > td {
+  width: 450px !important;
+  max-width: 450px !important;
+  font-size: 18px !important;
+  text-align: center;
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------ */
+
+
+/* 구분선 */
+.grid-container>.grid-item:nth-child(n+2):nth-child(-n+4) {
+	height: 100%;
+	border-bottom: 2px solid #ccc;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/* 모달 숨김 클랙스 */
+#modalContainer.hidden {
+	display: none; /* 기본 숨김 기능 */
+}
+
+/* 모달 전체 컨테이너 스타일 */
+#modalContainer {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+/* 모달 내부 콘텐츠 스타일 */
+#modalContent {
+	display:grid;
+	grid-template-columns: 500px 500px;
+	grid-template-rows: 400px 40px;
+	grid-template-areas: "one two" 
+						"three three";
+	gap: 30px;
+	position: absolute;
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#modalContent > div{
+	display:flex;
+	justify-content: center;
+}
+
+#eventVideo{
+	grid-area: one;
+	width:480px;
+	height:400px;
+}
+
+#modal-text{
+	grid-area: two;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+#modal-text > table > tbody > tr > th {
+	text-align:center !important;
+	width: 120px;
+}
+
+#modalBtnContainer{
+	grid-area: three;
+	display:flex;
+	justify-content: center;
+	gap: 20px;
+	text-align:center;
+}
+
+#write {
+  background-color: #ffffff;    /* 흰색 배경 */
+  color: #357edd;              /* 파란색 글씨 */
+  border: 2px solid #357edd;   /* 파란색 테두리 */
+  border-radius: 4px;          /* 모서리를 살짝 둥글게 */
+  font-size: 16px;             /* 글자 크기 */
+  cursor: pointer;             /* 마우스 커서 모양 */
+  vertical-align: middle;
+  width:100px;
+  height :40px;
+}
+
+#closeModal {
+  background-color: #357edd;   /* 파란색 배경 */
+  color: #ffffff;              /* 흰색 글씨 */
+  border: 2px solid #357edd;   /* 테두리는 배경색과 동일하게 */
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  vertical-align: middle;
+  width:100px;
+  height :40px;
+}
+
+/* Hover 시 살짝 변화를 주고 싶다면 예시로 아래와 같이 추가 가능 */
+#write:hover {
+  background-color: #357edd;
+  color: #ffffff;
+}
+
+#closeModal:hover {
+  background-color: #2c6dbb;
+}
