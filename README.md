@@ -45,8 +45,11 @@
   ![image](https://github.com/user-attachments/assets/d6c987eb-3de1-4cdf-832b-379efd49478c)  
 - **CCTV 화면**: 작업장 내 실시간 상황 확인  
   ![image](https://github.com/user-attachments/assets/c3a351ce-e022-4122-a7db-dfb69cb5f2bd)  
-- **RAG(검색 증강 챗봇)**: 등록된 문서를 기반으로 작업장 안전 관리 매뉴얼 관련 답변 제공  
-  ![image](https://github.com/user-attachments/assets/8d37a609-1f87-457b-9640-c64258b83418)  
+- **RAG(검색 증강 챗봇)**: 등록된 문서를 기반으로 작업장 안전 관리 매뉴얼 관련 답변 제공
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/8d37a609-1f87-457b-9640-c64258b83418" width="300">
+  </p> 
+
 
 ---
 
